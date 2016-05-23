@@ -13,6 +13,7 @@
         <module>service-facade</module>
         <module>bootstrap</module>
         <module>controller</module>
+        <module>nio</module>
     </modules>
 
     <properties>
