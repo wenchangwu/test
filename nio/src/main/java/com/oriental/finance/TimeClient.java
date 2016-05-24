@@ -16,12 +16,21 @@ public class TimeClient {
         PrintWriter out=null;
         try{
         socket=new Socket("127.0.0.1",8080);
-            in=new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            out=new PrintWriter(socket.getOutputStream(),true);
-            out.println("QUERY TIME ORDER");
-            System.out.println("send order server succeed");
-            String resp=in.readLine();
-            System.out.println("now is:"+resp);
+            in=new BufferedReader(new InputStreamReader(System.in));
+            BufferedReader is=new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            String readline=in.readLine();
+            while(!readline.equals("quit")){
+                out=new PrintWriter(socket.getOutputStream());
+                out.println("QUERY TIME ORDER");
+                out.flush();
+                System.out.println("send order server :"+readline);
+                String resp=is.readLine();
+                System.out.println("server is:"+resp);
+                readline=in.readLine();
+            }
+
+
+
         }catch(Exception e){
 
         }

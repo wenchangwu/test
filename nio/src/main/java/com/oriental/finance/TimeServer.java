@@ -16,7 +16,7 @@ public class TimeServer {
             Socket socket=null;
             while(true){
                 socket=server.accept();
-                new TimerServerHandler(socket).run();
+                new Thread(new TimerServerHandler(socket)).start();
             }
         }catch (Exception e){
 
