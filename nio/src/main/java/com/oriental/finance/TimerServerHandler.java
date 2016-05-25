@@ -1,9 +1,6 @@
 package com.oriental.finance;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 import java.util.Date;
 
@@ -14,31 +11,24 @@ public class TimerServerHandler implements Runnable {
 
     private Socket socket;
 
-    public TimerServerHandler(Socket socket){
-        this.socket=socket;
+    public TimerServerHandler(Socket socket) {
+        this.socket = socket;
     }
 
     public void run() {
-        BufferedReader in=null;
-        PrintWriter out=null;
-        try{
-            in=new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            out=new PrintWriter(this.socket.getOutputStream());
-            String currentTime=null;
-            String body=null;
-            while(true){
-                body=in.readLine();
-                if(body==null){
-                    break;
-                }
-                System.out.println("the time server receive order:"+body);
-                currentTime="QUERY TIME ORDER".equalsIgnoreCase(body)?new Date().toString():"BAD ORDER";
-                out.print(currentTime);
-                out.flush();
-                System.out.println(currentTime);
-            }
-        }catch(Exception e){
-
+        try {
+            OutputStream os = socket.getOutputStream();
+            InputStream is = socket.getInputStream();
+            os.write("of course ,xiao_dingo is great!".getBytes());
+            os.flush();
+            int size = is.available();
+            byte[] a = new byte[size];
+            is.read(a);
+            String strque = new String(a);
+            System.out.println("from client: "+strque);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
     }
 }

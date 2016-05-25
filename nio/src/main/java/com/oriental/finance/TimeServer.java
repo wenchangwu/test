@@ -1,5 +1,7 @@
 package com.oriental.finance;
 
+import org.springframework.scheduling.commonj.TimerManagerTaskScheduler;
+
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -14,9 +16,10 @@ public class TimeServer {
             server=new ServerSocket(8080);
             System.out.println("the time server is start in port 8080");
             Socket socket=null;
+            TimeServerHandlerExecutePool singleExecutor=new TimeServerHandlerExecutePool(50,10000);
             while(true){
                 socket=server.accept();
-                new Thread(new TimerServerHandler(socket)).start();
+                singleExecutor.execute(new TimerServerHandler(socket));
             }
         }catch (Exception e){
 

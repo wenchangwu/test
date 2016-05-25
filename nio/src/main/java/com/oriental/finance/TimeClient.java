@@ -1,8 +1,6 @@
 package com.oriental.finance;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 
 /**
@@ -10,28 +8,19 @@ import java.net.Socket;
  */
 public class TimeClient {
 
-    public static void main(String[] args){
-        Socket socket=null;
-        BufferedReader in=null;
-        PrintWriter out=null;
-        try{
-        socket=new Socket("127.0.0.1",8080);
-            in=new BufferedReader(new InputStreamReader(System.in));
-            BufferedReader is=new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            String readline=in.readLine();
-            while(!readline.equals("quit")){
-                out=new PrintWriter(socket.getOutputStream());
-                out.println("QUERY TIME ORDER");
-                out.flush();
-                System.out.println("send order server :"+readline);
-                String resp=is.readLine();
-                System.out.println("server is:"+resp);
-                readline=in.readLine();
-            }
-
-
-
-        }catch(Exception e){
+    public static void main(String[] args) {
+        try {
+            Socket client = new Socket("127.0.0.1", 8080);
+            OutputStream os = client.getOutputStream();
+            InputStream is = client.getInputStream();
+            os.write("xiao_dingo is great".getBytes());
+            os.flush();
+            int size = is.available();
+            byte[] a = new byte[size];
+            is.read(a);
+            String strque = new String(a);
+            System.out.println("from server: "+strque);
+        } catch (Exception e) {
 
         }
     }
