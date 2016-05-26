@@ -22,11 +22,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="bootstrap" />
         <module name="controller" />
         <module name="nio" />
         <module name="service" />
         <module name="service-facade" />
+      </profile>
+      <profile default="false" name="Annotation profile for bootstrap" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="bootstrap" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

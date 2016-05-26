@@ -1,6 +1,4 @@
-package com.oriental.finance;
-
-import org.springframework.scheduling.commonj.TimerManagerTaskScheduler;
+package com.oriental.finance.nio;
 
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -16,17 +14,14 @@ public class TimeServer {
             server=new ServerSocket(8080);
             System.out.println("the time server is start in port 8080");
             Socket socket=null;
-            TimeServerHandlerExecutePool singleExecutor=new TimeServerHandlerExecutePool(50,10000);
             while(true){
-                socket=server.accept();
-                singleExecutor.execute(new TimerServerHandler(socket));
+                new MultipTimerServer(8080).run();
             }
         }catch (Exception e){
 
         }finally {
             if(server!=null){
                 server.close();
-                server=null;
             }
         }
     }
