@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class DemoService implements DemoServiceFacade{
 
     public String register(User user) {
-        System.out.println("this is juest a demo");
+        System.out.println("this is just a demo");
         return "Hello World";
     }
 }

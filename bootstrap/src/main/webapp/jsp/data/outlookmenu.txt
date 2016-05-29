@@ -1,0 +1,8 @@
+﻿[
+	{ id: "account", text: "帐务管理", iconCls: "icon-add"},
+	{ id: "integral", pid: "account", text: "积分子帐户" ,iconCls: "icon-add",url:"jsp/datagrid/datagrid.jsp"},
+
+	{ id: "redis", text: "redis缓存管理"},
+	{ id: "product", pid: "redis", text: "产品缓存", iconCls: "icon-edit", url: "../tree/detailgrid.html", iconPosition: "top" },
+
+]

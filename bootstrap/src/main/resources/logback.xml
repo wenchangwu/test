@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <property name="log.path" value="E:/log"/>
+    <property name="log.path" value="/home/wuwenchang/logs/test"/>
 
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
