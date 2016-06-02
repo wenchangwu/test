@@ -33,14 +33,18 @@
     <div title="south" region="south" showSplit="false" showHeader="false" height="30" >
         <div style="line-height:28px;text-align:center;cursor:default">Copyright © 东方金融 </div>
     </div>
-    <div showHeader="false" region="west" width="180" maxWidth="250" minWidth="100" >
-        <!--OutlookMenu-->
-        <div id="leftTree" class="mini-outlookmenu" url="jsp/data/outlookmenu.txt" onitemselect="onItemSelect"
-            idField="id" parentField="pid" textField="text" borderStyle="border:0"
-        >
-        </div>
+
+   <div region="west" title="在线演示" showHeader="true" bodyStyle="padding-left:1px;" showSplitIcon="true" width="230" minWidth="100" maxWidth="350">
+
+         <ul id="tree1" class="mini-tree" url="tree/init" style="width:300px;height:200px;padding:5px;"
+             showTreeIcon="true" textField="text" onbeforeload="onBeforeTreeLoad" onNodeClick="onNodeSelect";
+             idField="id" parentField="pid" value="text" resultAsTree="false"
+                 >
+         </ul>
 
     </div>
+
+
     <div title="center" region="center" bodyStyle="overflow:hidden;">
         <iframe id="mainframe" frameborder="0" name="main" style="width:100%;height:100%;" border="0">
         </iframe>
@@ -49,18 +53,21 @@
 
 
 <script type="text/javascript">
-        $(document).ready(function(){
-        });
+mini.parse();
+function onBeforeTreeLoad(e) {
+        var tree = e.sender;    //树控件
+        var node = e.node;      //当前节点
+        var params = e.params;  //参数对象
 
-          mini.parse();
-            //init iframe src
-            var iframe = document.getElementById("mainframe");
-            //iframe.src = "jsp/datagrid/datagrid.jsp"
+        //可以传递自定义的属性
+        //params.myField = "123"; //后台：request对象获取"myField"
+    }
 
-            function onItemSelect(e) {
-                var item = e.item;
-                iframe.src = item.url;
-            }
+
+    function onNodeSelect(e){
+        var node=e.node;
+        alert(node.url);
+    }
     </script>
 </body>
 
