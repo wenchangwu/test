@@ -17,7 +17,7 @@ import java.util.Map;
  * Created by wuwenchang on 31/7/16
  * 双方在没有交换本地密钥，同样可以完成数据的对称加密算法，this is the DH algorithm key
  */
-public abstract class Dh {
+public abstract class DHCoder {
 
     public static final String KEY_ALGORITHM = "DH";
 

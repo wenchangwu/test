@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Created by wuwenchang on 31/7/16.
  */
-public class DhTest {
+public class DHCoderTest {
 
     private byte[] publicKey1;
 
@@ -27,11 +27,11 @@ public class DhTest {
     @Before
     public void initKey() throws Exception{
         //generate key 1
-        Map<String,Object> keyMap1=Dh.initKey();
+        Map<String,Object> keyMap1= DHCoder.initKey();
 
-        publicKey1=Dh.getPublicKey(keyMap1);
+        publicKey1= DHCoder.getPublicKey(keyMap1);
 
-        privateKey1=Dh.getPrivateKey(keyMap1);
+        privateKey1= DHCoder.getPrivateKey(keyMap1);
 
         System.out.println("1方公钥：   "+ Base64.encodeBase64String(publicKey1));
 
@@ -39,21 +39,21 @@ public class DhTest {
 
         //generate key 2 from key1 public key
 
-        Map<String,Object> keyMap2=Dh.initKey(publicKey1);
+        Map<String,Object> keyMap2= DHCoder.initKey(publicKey1);
 
-        publicKey2=Dh.getPublicKey(keyMap2);
+        publicKey2= DHCoder.getPublicKey(keyMap2);
 
-        privatekey2=Dh.getPrivateKey(keyMap2);
+        privatekey2= DHCoder.getPrivateKey(keyMap2);
 
         System.out.println("2方公钥：   "+Base64.encodeBase64String(publicKey2));
 
         System.out.println("2方密钥：   "+Base64.encodeBase64String(privatekey2));
 
-        key1=Dh.getSecretKey(publicKey2,privateKey1);
+        key1= DHCoder.getSecretKey(publicKey2,privateKey1);
 
         System.out.println("1方密钥：   "+Base64.encodeBase64String(key1));
 
-        key2=Dh.getSecretKey(publicKey1,privatekey2);
+        key2= DHCoder.getSecretKey(publicKey1,privatekey2);
 
         System.out.println("2方密钥：   "+Base64.encodeBase64String(key2));
 
@@ -66,11 +66,11 @@ public class DhTest {
         String input1="密码交换算法";
         System.out.println("原文: "+input1);
         System.out.println("使用1本地密钥进行加密....");
-        byte[] code1=Dh.encrypt(input1.getBytes(),key1);
+        byte[] code1= DHCoder.encrypt(input1.getBytes(),key1);
         System.out.println("DES加密后数据 ：  "+Base64.encodeBase64String(code1));
 
         //接收方2来解密
-        byte[] decode2=Dh.decrypt(code1,key2);
+        byte[] decode2= DHCoder.decrypt(code1,key2);
         System.out.println("2解密后数据为：    "+new String(decode2));
     }
 }
