@@ -32,7 +32,9 @@ public class RSACoderTest {
         System.out.println("加密后：    "+ Base64.encodeBase64String(encodeData1));
 
         byte[] decodeData1=RSACoder.decryptByPublicKey(encodeData1,publicKey);
-        System.out.println("解密后：    "+new String(decodeData1));
+       System.out.println("解密后：    "+new String(decodeData1));
+
     }
+
 }
 
