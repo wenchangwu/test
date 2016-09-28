@@ -25,6 +25,7 @@
         <module name="bootstrap" />
         <module name="controller" />
         <module name="encrypt" />
+        <module name="mq" />
         <module name="nio" />
         <module name="service" />
         <module name="service-facade" />
@@ -34,6 +35,7 @@
       <module name="bootstrap" target="1.8" />
       <module name="controller" target="1.5" />
       <module name="encrypt" target="1.5" />
+      <module name="mq" target="1.5" />
       <module name="nio" target="1.5" />
       <module name="service" target="1.5" />
       <module name="service-facade" target="1.5" />

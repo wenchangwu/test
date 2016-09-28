@@ -11,10 +11,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: org.easymock:easymock:3.4" level="project" />
-    <orderEntry type="library" name="Maven: org.objenesis:objenesis:2.2" level="project" />
-    <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.12" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty-all:5.0.0.Alpha2" level="project" />
     <orderEntry type="module" module-name="service" />
     <orderEntry type="module" module-name="service-facade" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.11" level="project" />
@@ -41,6 +37,7 @@
     <orderEntry type="library" name="Maven: org.objenesis:objenesis:2.2" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.12" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-all:5.0.0.Alpha2" level="project" />
+    <orderEntry type="library" name="Maven: com.rabbitmq:amqp-client:3.6.0" level="project" />
   </component>
   <component name="org.twodividedbyzero.idea.findbugs">
     <option name="_basePreferences">
